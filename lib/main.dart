@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food/core/store/favor_viewmodel.dart';
+import 'package:food/core/store/filter_viewmodel.dart';
 import 'package:food/core/store/meal_viewmodel.dart';
 import 'package:food/ui/pages/main/main.dart';
 import 'package:food/ui/shared/app_theme.dart';
@@ -13,8 +14,16 @@ void main() {
 
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider(create: (ctx) => MealViewModel()),
+      //当MealViewModel需要依赖FilterViewModel，我们需要使用proxyProvider
       ChangeNotifierProvider(create: (ctx) => FavorViewModel()),
+      ChangeNotifierProvider(create: (ctx) => FilterViewModel()),
+      ChangeNotifierProxyProvider<FilterViewModel, MealViewModel>(
+        create: (ctx) => MealViewModel(),
+        update: (ctx, filterVM, mealVM) {
+          mealVM?.updateFilters(filterVM);
+          return mealVM!;
+        },
+      ),
     ],
     child: const MyApp(),
   ));

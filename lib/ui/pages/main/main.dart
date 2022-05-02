@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food/ui/pages/home/home_drawer.dart';
 import 'package:food/ui/pages/main/intialize_list.dart';
 
 class MainScreen extends StatefulWidget {
@@ -18,6 +19,7 @@ class _MainScreenState extends State<MainScreen> {
         index: _currentIndex,
         children: pages,
       ),
+      drawer: const HomeDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         selectedFontSize: 14,
         unselectedFontSize: 14,

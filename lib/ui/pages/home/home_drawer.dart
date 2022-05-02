@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food/core/extension/int_extension.dart';
+import 'package:food/ui/pages/filter/filter.dart';
 
 class HomeDrawer extends StatelessWidget {
   const HomeDrawer({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class HomeDrawer extends StatelessWidget {
             Navigator.of(context).pop();
           }),
           buildListTile(const Icon(Icons.settings), "设置", () {
-            Navigator.of(context).pop();
+            Navigator.of(context).pushNamed(FilterScreen.routeName);
           })
         ],
       ),

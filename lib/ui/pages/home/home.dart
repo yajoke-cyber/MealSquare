@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food/ui/pages/home/home_appbar.dart';
-import 'package:food/ui/pages/home/home_drawer.dart';
 
 import 'home_content.dart';
 
@@ -9,8 +8,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: HomeAppBar(context),
-        body: const Center(child: HomeScreenContent()),
-        drawer: HomeDrawer());
+      appBar: HomeAppBar(context),
+      body: const Center(child: HomeScreenContent()),
+    );
   }
 }

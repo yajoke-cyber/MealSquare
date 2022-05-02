@@ -11,7 +11,7 @@ class HomeAppBar extends AppBar {
               //自定义抽屉button图标，此时可以使用builder去element树中寻找对象实例，因为of都是向上查找的
               return IconButton(
                   onPressed: () {
-                    Scaffold.of(ctx).openDrawer();
+                    Scaffold.of(context).openDrawer();
                   },
                   icon: const Icon(Icons.build));
             },
